@@ -3,7 +3,8 @@ const { Schema } = mongoose;
 const NewsSchema = new Schema({
   title: String,
   content: String,
-  photo: String,
+  newsPhoto: String,
+  date: Date,
 });
 
 const NewsPost = mongoose.model("/news", NewsSchema);
