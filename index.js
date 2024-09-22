@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
-const port = 3700;
+const PORT = process.env.PORT || 3000; // Default to port 3000 if no environment variable is set
 
 const Admin = require("./models/login"); // Ensure the path to your model is correct
 const eventRoute = require("./events/events")
@@ -109,6 +109,6 @@ app.post("/login", async (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
 });
