@@ -31,7 +31,7 @@ app.use('/upload_news', express.static(__dirname + '/upload_news'));
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
+    origin: "https://ar-rajaa-schools-admin.vercel.app",
   })
 );
 app.use(eventRoute)
