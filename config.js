@@ -1,4 +1,4 @@
 // config/baseUrl.js
-const BASE_URL = 'http://localhost:3700/'; // or your production URL
+const BASE_URL = 'https://ar-rajaa-schools-backend.onrender.com/'; // or your production URL
 
 module.exports = BASE_URL;
