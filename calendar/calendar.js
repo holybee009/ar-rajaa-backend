@@ -4,20 +4,21 @@ const Calendar = require("../models/calendar")
 
 // calendar details posting
 router.post("/calendar", async (req, res) => {
-    const { selectedYear, calendarData } = req.body;
+    const { selectedYear,term, calendarData } = req.body;
   
     try {
       // Check if a calendar with the selectedYear already exists
-      const existingCalendar = await Calendar.findOne({ selectedYear });
+      const existingCalendar = await Calendar.findOne({ selectedYear,term });
   
       if (existingCalendar) {
         // Return an error if the calendar for that year already exists
-        return res.status(400).json({ message: "Calendar for this year already exists" });
+        return res.status(400).json({ message: "Calendar for this year and term already exists" });
       }
   
       // Create a new calendar if not found
       await Calendar.create({
         selectedYear,
+          term,
         calendarData,
       });
   
@@ -31,13 +32,16 @@ router.post("/calendar", async (req, res) => {
 
   // calendar details get endpoint
   router.get('/calendar', async (req, res) => {
-    const {selectedYear} = req.query
+    const {selectedYear, term} = req.query
     try {
         let query = {};
   
         // If selectedYear is provided in the query, add to the query object
         if (selectedYear) {
           query.selectedYear = selectedYear;
+        }
+        if (term) {
+          query.term = term;
         }
       const calendarData = await Calendar.find(query);
       res.status(200).json(calendarData);
