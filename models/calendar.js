@@ -6,7 +6,7 @@ const SingleSchema = new Schema({
     selectedNumber: {type: Number},
     startDate:{type: Date}, 
     endDate:{type: Date}, 
-    scheduleName:{type: String}
+    scheduleName:{type: String},
     term:{type:String}
   });
 
