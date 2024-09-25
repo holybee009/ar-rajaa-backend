@@ -11,8 +11,8 @@ const SingleSchema = new Schema({
 
 const CalendarSchema = new Schema({
   selectedYear: String,
+  term:String,
   calendarData: [SingleSchema],
-    term:String,
 });
 
 const CalendarPost = mongoose.model("/calendar", CalendarSchema);
