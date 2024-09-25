@@ -7,6 +7,7 @@ const SingleSchema = new Schema({
     startDate:{type: Date}, 
     endDate:{type: Date}, 
     scheduleName:{type: String}
+    term:{type:String}
   });
 
 const CalendarSchema = new Schema({
